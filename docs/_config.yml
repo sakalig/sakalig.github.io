@@ -29,7 +29,7 @@ twitter_username: jekyllrb
 github_username:  sakalig
 
 # Build settings
-theme: architect
+theme: cayman
 plugins:
   - jekyll-feed
 
