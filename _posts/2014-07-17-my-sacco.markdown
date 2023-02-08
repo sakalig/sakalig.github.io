@@ -1,0 +1,11 @@
+---
+layout: default
+modal-id: 2
+date: 2014-07-17
+img: skysacco.png
+alt: image-alt
+project-date: Sep 2017 onwards
+client: Android
+category: Mobile Front-End
+description: A mobile money application that facilitates digital cash services to multiple approved saccos and their members enabling them to transact between one another as well as procure social amenities such as handling bills.<br><br><a href="https://play.google.com/store/apps/details?id=skyworld.mysacco">My SACCO</a>
+---

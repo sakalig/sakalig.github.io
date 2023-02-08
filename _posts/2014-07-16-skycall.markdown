@@ -1,0 +1,11 @@
+---
+layout: default
+modal-id: 3
+date: 2014-07-16
+img: skycall.svg
+alt: image-alt
+project-date: Feb 2019 onwards
+client: Mobile + Web
+category: Call session handler
+description: A call centre solution that intelligently balances correspondence between two or more communicating parties as well as enveloping it within a secure and reliable layer.<br><br><a href="https://skycall.africa">SkyCall</a>
+---
