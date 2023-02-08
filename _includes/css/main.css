@@ -269,6 +269,7 @@ section.success {
     .portfolio-flex-grid .portfolio-flex-row .portfolio-flex-item {
       flex: 1 0 32%;
       max-width: 32%;
+      align-self: center;
     }
   }
   /* A large grid might need four columns on widescreen layouts */
