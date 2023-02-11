@@ -40,8 +40,8 @@ footer:
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
-  - title: twitter
-    url: http://twitter.com/
+  #- title: twitter
+   # url: http://twitter.com/
   - title: stack-overflow
     url: https://stackoverflow.com/users/7594418/keyboard-kracker22
   - title: bitbucket
