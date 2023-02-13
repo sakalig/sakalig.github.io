@@ -36,7 +36,7 @@ footer:
   copyright: Gabriel Sakali
   location: Location
   social: Around the Web
-  credits: More
+  credits: Bonus
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
@@ -55,7 +55,7 @@ address:
   #- line: Kenya
 
 # Credits content
-credits: 'Gitlab'
+credits: "I'm Feeling Funny"
 
 # Build settings
 markdown: kramdown
