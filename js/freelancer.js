@@ -35,3 +35,8 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+// Pull jokes from free API
+$('#myJoke').click(function() {
+    console.log("Joke requested");
+});
