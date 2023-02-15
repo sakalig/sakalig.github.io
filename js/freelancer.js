@@ -39,4 +39,13 @@ $('.navbar-collapse ul li a').click(function() {
 // Pull jokes from free API
 $('#myJoke').click(function() {
     console.log("Joke requested");
+
+    const req = new XMLHttpRequest();
+    req.onload = (e) => {
+        console.log(req.response);
+        alert(req.response.setup + "\n" + req.response.delivery);
+    };
+    req.open("GET", "https://v2.jokeapi.dev/joke/Any");
+    req.responseType = "json";
+    req.send();
 });
