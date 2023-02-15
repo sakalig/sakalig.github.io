@@ -45,7 +45,7 @@ $('#myJoke').click(function() {
         console.log(req.response);
         alert(req.response.setup + "\n" + req.response.delivery);
     };
-    req.open("GET", "https://v2.jokeapi.dev/joke/Any");
+    req.open("GET", "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky?type=twopart");
     req.responseType = "json";
     req.send();
 });
