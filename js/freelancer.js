@@ -37,26 +37,14 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 // Pull jokes from free API
-$('#myJoke').click(function() {
-    console.log("Joke requested");
-
-    const req = new XMLHttpRequest();
-    req.onload = (e) => {
-        console.log(req.response);
-        //alert(req.response.setup + "\n" + req.response.delivery);
-    };
-    req.open("GET", "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky?type=twopart");
-    req.responseType = "json";
-    req.send();
-});
+// "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky?type=twopart";
 
 $(document).on("click", "#jokeButton", function() {
     const req = new XMLHttpRequest();
     req.onload = (e) => {
-        //console.log(req.response.setup + "\n" + req.response.delivery);
-        $(".modal-body #dataid").val(req.response.setup + "\n" + req.response.delivery);
+        document.getElementById("myModalBody").innerHTML = "<b>"+req.response.setup+"</b><br>" + req.response.delivery;
     };
-    req.open("GET", "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist");
+    req.open("GET", "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky?type=twopart");
     req.responseType = "json";
     req.send();
 });
