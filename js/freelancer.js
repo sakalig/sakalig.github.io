@@ -56,7 +56,7 @@ $(document).on("click", "#jokeButton", function() {
         //console.log(req.response.setup + "\n" + req.response.delivery);
         $(".modal-body #dataid").val(req.response.setup + "\n" + req.response.delivery);
     };
-    req.open("GET", "https://v2.jokeapi.dev/joke/Programming,Miscellaneous,Pun,Spooky?type=twopart");
+    req.open("GET", "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist");
     req.responseType = "json";
     req.send();
 });
