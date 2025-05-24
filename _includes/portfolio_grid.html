@@ -1,24 +1,32 @@
 <!-- Portfolio Grid Section -->
-<section id="portfolio">
-  <div class="container portfolio-flex-grid">
-    <div class="row">
+<section id="portfolio" class="py-5">
+  <div class="container">
+    <div class="row justify-content-center mb-4">
       <div class="col-lg-12 text-center">
         <h2>Portfolio</h2>
         <hr class="star-primary">
       </div>
     </div>
-    <div class="portfolio-flex-row">
+    <div class="row gx-4 gy-4">
       {% for post in site.posts %}
-      <div class="portfolio-flex-item portfolio-item">
-        <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
-          <div class="caption">
-            <div class="caption-content">
-              <i class="fa fa-search-plus fa-3x"></i>
-            </div>
+      {% if post.modal-id %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm portfolio-item">
+          <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal-{{ post.modal-id }}">
+            <img src="{{ "/img/portfolio/" | prepend: site.baseurl }}{{ post.img }}" class="card-img-top" alt="{{ post.alt | escape }}">
+          </a>
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ post.title | default: post.category | escape }}</h5>
+            {% if post.description %}
+              <p class="card-text">{{ post.description | strip_html | truncatewords: 15 }}</p>
+            {% endif %}
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#portfolioModal-{{ post.modal-id }}">
+              View More
+            </button>
           </div>
-          <img src="img/portfolio/{{ post.img }}" class="img-responsive" alt="{{ post.alt }}">
-        </a>
+        </div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>

@@ -1,47 +1,46 @@
 <!-- Portfolio Modals -->
 {% for post in site.posts %}
-<div class="portfolio-modal modal fade" id="portfolioModal-{{ post.modal-id }}" tabindex="-1" role="dialog"
-  aria-hidden="true">
-  <div class="modal-content">
-    <div class="close-modal" data-dismiss="modal">
-      <div class="lr">
-        <div class="rl">
-        </div>
+{% if post.modal-id %}
+<div class="modal fade portfolio-modal" id="portfolioModal-{{ post.modal-id }}" tabindex="-1" role="dialog" aria-labelledby="portfolioModalLabel-{{ post.modal-id }}" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-uppercase" id="portfolioModalLabel-{{ post.modal-id }}">{{ post.title | default: post.category | escape }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-          <div class="modal-body">
-            <h2>{{ post.title }}</h2>
-            <hr class="star-primary">
-            <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
-            {% if post.description %}
-            <p>{{ post.description }}</p>
-            {% endif %}
-            <ul class="list-inline item-details">
-              {% if post.client %}
-              <li>Client:
-                <strong>{{ post.client }}</strong>
-              </li>
+      <div class="modal-body">
+        <div class="container"> <!-- Keep container for centered content if desired, or make modal-body itself more structured -->
+          <div class="row justify-content-center">
+            <div class="col-lg-10"> <!-- Adjusted for potentially wider content area -->
+              <!-- Title repeated here if needed, or rely on header. For now, matching old structure a bit. -->
+              <h2 class="text-uppercase mb-3">{{ post.title | default: post.category | escape }}</h2>
+              <hr class="star-primary mb-4">
+              <img src="{{ "/img/portfolio/" | prepend: site.baseurl }}{{ post.img }}" class="img-fluid d-block mx-auto mb-4" alt="{{ post.alt | escape }}">
+              {% if post.description %}
+                <div class="mb-4">{{ post.description | markdownify }}</div> <!-- Use markdownify if description contains markdown -->
               {% endif %}
-              {% if post.project-date %}
-              <li>Date:
-                <strong>{{ post.project-date }}</strong>
-              </li>
-              {% endif %}
-              {% if post.category %}
-              <li>Service:
-                <strong>{{ post.category }}</strong>
-              </li>
-              {% endif %}
-            </ul>
-            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
-              Close</button>
+              <ul class="list-unstyled item-details mb-4">
+                {% if post.client %}
+                <li><strong>Client:</strong> {{ post.client | escape }}</li>
+                {% endif %}
+                {% if post.project-date %}
+                <li><strong>Date:</strong> {{ post.project-date | escape }}</li>
+                {% endif %}
+                {% if post.category %}
+                <li><strong>Service:</strong> {{ post.category | escape }}</li>
+                {% endif %}
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="fas fa-times"></i> Close Project
+        </button>
       </div>
     </div>
   </div>
 </div>
+{% endif %}
 {% endfor %}
