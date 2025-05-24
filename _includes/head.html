@@ -10,10 +10,8 @@
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml">
 
-  <!-- Bootstrap Core CSS - Uses Bootswatch Lux Theme -->
-  <link rel="stylesheet" href="{{ "/_includes/css/lux_bootstrap.min.css" | prepend: site.baseurl }}">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="{{ "/_includes/css/main.css" | prepend: site.baseurl }}">
+  <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+  <link rel="stylesheet" href="{{ " style.css" }}">
 
   <!-- Google verification -->
   {% if site.google_verify %}
@@ -24,11 +22,9 @@
   <meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
 
   <!-- Custom Fonts -->
-  <!-- Font Awesome needs to be updated or confirmed compatible. Assuming it's linked here for now. -->
-  <link rel="stylesheet" href="{{ "/css/font-awesome/css/all.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ " css/font-awesome/css/all.min.css" }}">
   <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <!-- Lux theme also imports "Nunito Sans" - this might be a good opportunity to consolidate font usage later -->
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
