@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
 /*!
  * Start Bootstrap - Freelancer Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
@@ -6,6 +8,7 @@
 
 body {
     overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
 }
 
 p {
@@ -32,7 +35,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
 
@@ -59,20 +62,33 @@ hr.star-primary:after {
 }
 
 hr.star-light {
-    border-color: #fff;
+    border-color: #fff; /* Default for general use on light backgrounds */
 }
 
 hr.star-light:after {
-    color: #fff;
-    background-color: #{{ site.color.primary }};
+    color: #fff; /* Default for general use on light backgrounds */
+    background-color: #004080; /* New Primary Color */
 }
 
+/* Specific styling for hr.star-light when on a dark background like #about */
+section.success hr.star-light, /* #about uses section.success */
+#about hr.star-light {
+    border-color: #f8f9fa;
+}
+
+section.success hr.star-light:after, /* #about uses section.success */
+#about hr.star-light:after {
+    color: #f8f9fa;
+    background-color: #004080; /* This should be the section background color */
+}
+
+
 hr.star-primary {
-    border-color: #{{ site.color.secondary }};
+    border-color: #004080; /* New Primary Color */
 }
 
 hr.star-primary:after {
-    color: #{{ site.color.secondary }};
+    color: #004080; /* New Primary Color */
     background-color: #fff;
 }
 
@@ -99,7 +115,7 @@ header img {
 header .intro-text .name {
     display: block;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     font-weight: 700;
 }
@@ -150,9 +166,47 @@ header .intro-text .skills {
 
 .navbar {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
 }
+
+/* New Navbar Styling */
+.navbar-default {
+  background-color: #f8f9fa; /* Light Gray */
+  border-color: #e7e7e7; /* Optional: subtle border */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.navbar-default .navbar-brand {
+  color: #004080; /* Primary color for brand */
+  font-family: 'Montserrat', sans-serif; /* Ensure brand font */
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #002b54; /* Darker primary for brand hover */
+}
+.navbar-default .nav li a {
+  color: #004080; /* Primary color for links */
+  font-family: 'Montserrat', sans-serif; /* Or 'Open Sans' if preferred for links */
+}
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus {
+  color: #002b54; /* Darker primary for link hover */
+  background-color: #e7e7e7; /* Optional: subtle hover background */
+}
+.navbar-default .nav li.active a,
+.navbar-default .nav li.active a:hover,
+.navbar-default .nav li.active a:focus {
+    color: #002b54; /* Darker primary or a distinct accent */
+    background-color: #dcdcdc; /* Slightly darker background for active */
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #004080; /* Primary color for hamburger icon bars */
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #e7e7e7; /* Light background for toggle hover */
+}
+/* End New Navbar Styling */
 
 .navbar a:focus {
     outline: 0;
@@ -168,7 +222,7 @@ header .intro-text .skills {
 
 .navbar-default,
 .navbar-inverse {
-    border: 0;
+    /* border: 0; */ /* Overridden by new navbar style */
 }
 
 section {
@@ -180,9 +234,23 @@ section h2 {
     font-size: 3em;
 }
 
-section.success {
-    color: #fff;
-    background: #{{ site.color.primary }};
+section.success { /* This is used by the #about section */
+    color: #f8f9fa; /* Light gray text for contrast */
+    background: #004080; /* New Primary Color */
+}
+
+/* Paragraph styling within the About section */
+section.success p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px; /* Slightly larger for readability */
+    line-height: 1.6;
+    color: #f8f9fa; /* Ensure paragraph text is light */
+}
+
+/* For the two-column layout in #about */
+section.success .row .col-lg-4 p,
+section.success .row .col-lg-offset-2 p {
+    font-size: 16px; /* Adjust if 18px is too large for columns */
 }
 
 @media(max-width:767px) {
@@ -212,10 +280,10 @@ section.success {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: rgba({{ site.color.primary-rgb }},.9);
+    background: rgba(0, 64, 128, 0.7); /* primary-rgb with alpha */
+    transition: all ease .5s;
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
-    transition: all ease .5s;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption:hover {
@@ -230,11 +298,12 @@ section.success {
     margin-top: -12px;
     text-align: center;
     font-size: 20px;
-    color: #fff;
+    color: #fff; /* Ensure text/icon is white */
 }
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content i {
     margin-top: -12px;
+    color: white; /* Ensure icon is white */
 }
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
@@ -280,22 +349,82 @@ section.success {
     }
   } */
 
-.btn-outline {
-    margin-top: 15px;
-    border: solid 2px #fff;
-    font-size: 20px;
-    color: #fff;
-    background: 0 0;
+/* General Button Styles */
+.btn {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border: 2px solid transparent; /* Base border for consistency */
     transition: all .3s ease-in-out;
+}
+
+.btn-primary,
+.btn-success { /* .btn-success is used for primary actions in this theme */
+    background-color: #004080;
+    border-color: #004080;
+    color: white;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+    background-color: #002b54;
+    border-color: #002b54;
+    color: white;
+}
+
+.btn-secondary,
+.btn-default { /* Assuming .btn-default can be styled as secondary */
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-default:hover, /* Styling .btn-default used in portfolio modals */
+.btn-default:focus,
+.btn-default:active {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: white;
+}
+
+.btn-outline { /* Used in #about for "Download CV" */
+    margin-top: 15px;
+    font-size: 20px; /* Original size */
+    color: white; /* Text color on dark background */
+    background: transparent;
+    border: 2px solid white; /* Border color on dark background */
 }
 
 .btn-outline:hover,
 .btn-outline:focus,
 .btn-outline:active,
 .btn-outline.active {
-    border: solid 2px #fff;
-    color: #{{ site.color.primary }};
-    background: #fff;
+    color: #004080; /* Primary color text on hover */
+    background: white;
+    border-color: white;
+}
+
+
+/* Contact Form Specific Styles */
+#contact .form-control {
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 20px 15px; /* Increased padding for better touch targets and visual */
+    box-shadow: none;
+    font-size: 16px; /* Ensure form text is readable */
+    line-height: 1.5;
+}
+#contact .form-control:focus {
+    border-color: #004080; /* Primary color for focus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 64, 128, 0.25); /* Subtle focus glow */
 }
 
 .floating-label-form-group {
@@ -310,22 +439,31 @@ section.success {
     z-index: 1;
     position: relative;
     padding-right: 0;
-    padding-left: 0;
-    border: 0;
-    border-radius: 0;
-    font-size: 1.5em;
+    padding-left: 0; /* Original padding was 0, form-control style now adds padding */
+    border: 0; /* Original border was 0, form-control style now adds border */
+    border-radius: 0; /* Original radius was 0, form-control style now adds radius */
+    font-size: 1.5em; /* Original was 1.5em, might conflict with .form-control font-size */
     background: 0 0;
     box-shadow: none!important;
     resize: none;
+    /* Using #contact .form-control specific styles for padding, border, font-size */
 }
+
+#contact .floating-label-form-group input,
+#contact .floating-label-form-group textarea {
+    padding-left: 10px; /* Add some left padding for text */
+    padding-right: 10px;
+    font-size: 16px; /* Override 1.5em for consistency */
+}
+
 
 .floating-label-form-group label {
     display: block;
     z-index: 0;
     position: relative;
-    top: 2em;
+    top: 2em; /* Original was 2em */
     margin: 0;
-    font-size: .85em;
+    font-size: .85em; /* Original was .85em */
     line-height: 1.764705882em;
     vertical-align: middle;
     vertical-align: baseline;
@@ -334,6 +472,23 @@ section.success {
     -moz-transition: top .3s ease,opacity .3s ease;
     -ms-transition: top .3s ease,opacity .3s ease;
     transition: top .3s ease,opacity .3s ease;
+    font-family: 'Open Sans', sans-serif; /* Ensure Open Sans */
+    color: #6c757d; /* Secondary color or a gray */
+}
+
+/* Adjust label position based on new padding in .form-control */
+#contact .floating-label-form-group label {
+    padding: 0 15px; /* Match form-control horizontal padding */
+    top: 30px; /* Adjust based on form-control padding + desired position */
+}
+
+#contact .floating-label-form-group-with-value label {
+    top: 0; /* Original was 0 */
+    opacity: 1;
+}
+
+#contact .floating-label-form-group-with-focus label {
+    color: #004080; /* Primary color for focused label */
 }
 
 .floating-label-form-group::not(:first-child) {
@@ -341,51 +496,97 @@ section.success {
     border-left: 1px solid #eee;
 }
 
-.floating-label-form-group-with-value label {
+/* .floating-label-form-group-with-value label {
     top: 0;
     opacity: 1;
 }
 
 .floating-label-form-group-with-focus label {
     color: #{{ site.color.primary }};
-}
+} */ /* These are now more specific under #contact */
 
 form .row:first-child .floating-label-form-group {
     border-top: 1px solid #eee;
 }
 
+/* Footer Styling */
 footer {
-    color: #fff;
+    background-color: #002b54; /* New secondary-dark */
+    color: #f8f9fa; /* Light gray for general text */
+    padding: 0; /* Padding will be handled by footer-above and footer-below */
+    text-align: center; /* Existing style from original theme */
 }
 
-footer h3 {
-    margin-bottom: 30px;
+footer h3 { /* Titles in footer columns, e.g., "Location" */
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 30px; /* Existing style */
+    font-weight: 700; /* Ensure consistent with other headings */
+}
+
+footer p, footer span, footer .footer-col { /* General text elements */
+     font-family: 'Open Sans', sans-serif;
+     color: #f8f9fa;
+     font-size: 16px; /* Consistent font size for footer text */
+     line-height: 1.6;
+}
+
+footer a {
+    font-family: 'Open Sans', sans-serif;
+    color: #f8f9fa; /* Light gray for links */
+}
+footer a:hover, footer a:focus {
+    color: #18bc9c; /* Accent color for hover, or use white/lighter gray */
+    /* color: white; */
 }
 
 footer .footer-above {
     padding-top: 50px;
-    background-color: #{{ site.color.secondary }};
+    padding-bottom: 50px; /* Added padding for spacing */
+    background-color: #002b54; /* Ensure this matches main footer bg */
 }
 
 footer .footer-col {
-    margin-bottom: 50px;
+    margin-bottom: 30px; /* Reduced from 50px for tighter look */
 }
 
 footer .footer-below {
     padding: 25px 0;
-    background-color: #{{ site.color.secondary-dark }};
+    background-color: #002b54; /* Cohesive background with rest of footer */
+    color: #f8f9fa;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px; /* Slightly smaller for copyright */
+}
+footer .footer-below p, footer .footer-below li, footer .footer-below a {
+     font-family: 'Open Sans', sans-serif;
+     color: #f8f9fa;
+}
+footer .footer-below a:hover, footer .footer-below a:focus {
+    color: #18bc9c; /* Accent or white */
 }
 
-.btn-social {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #fff;
-    border-radius: 100%;
-    text-align: center;
-    font-size: 20px;
-    line-height: 45px;
+/* Social Media Icons in Footer */
+footer .btn-social { /* Targets .btn-outline specifically within footer */
+    display: inline-block; /* Already set */
+    width: 50px; /* Already set */
+    height: 50px; /* Already set */
+    border: 2px solid #f8f9fa; /* Light border */
+    border-radius: 100%; /* Already set */
+    text-align: center; /* Already set */
+    font-size: 20px; /* Already set */
+    line-height: 45px; /* Calculated for vertical centering */
+    color: #f8f9fa; /* Light icon color */
+    background-color: transparent; /* Ensure no background from general .btn-outline */
 }
+footer .btn-social:hover,
+footer .btn-social:focus,
+footer .btn-social:active {
+    background-color: #f8f9fa; /* Light background on hover */
+    color: #002b54; /* Icon color changes to footer background color */
+    border-color: #f8f9fa; /* Ensure border stays light */
+}
+/* End Footer Styling */
 
 .btn:focus,
 .btn:active,
@@ -434,9 +635,31 @@ footer .footer-below {
     margin-bottom: 30px;
 }
 
+.portfolio-modal .modal-content p {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333; /* Or a suitable dark gray */
+    font-size: 16px; /* Adjust as needed */
+}
+
 .portfolio-modal .modal-content .item-details {
     margin: 30px 0;
+    font-family: 'Open Sans', sans-serif;
 }
+
+.portfolio-modal .modal-content ul.item-details {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.portfolio-modal .modal-content ul.item-details li {
+    margin-bottom: 5px;
+}
+.portfolio-modal .modal-content ul.item-details strong {
+    color: #004080; /* Primary color for emphasis */
+    font-weight: 700; /* Ensure strong is bold */
+}
+
+/* .portfolio-modal .btn-default styling moved to general .btn-default styling */
 
 .portfolio-modal .close-modal {
     position: absolute;
@@ -457,7 +680,7 @@ footer .footer-below {
     width: 1px;
     height: 75px;
     margin-left: 35px;
-    background-color: #{{ site.color.secondary }};
+    background-color: #004080; /* Primary color for close icon */
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
@@ -467,15 +690,15 @@ footer .footer-below {
     z-index: 1052;
     width: 1px;
     height: 75px;
-    background-color: #{{ site.color.secondary }};
+    background-color: #004080; /* Primary color for close icon */
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
 
-.navbar-nav>.active>a {
-    background-color: #{{ site.color.secondary-dark }} !important;
-}
+/* .navbar-nav>.active>a { */
+    /* background-color: #{{ site.color.secondary-dark }} !important; */ /* Overridden by new navbar style */
+/* } */
 
 /* Fix modal mouse wheel issues */
 /* https://github.com/twbs/bootstrap/issues/16297 */
